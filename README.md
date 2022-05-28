@@ -77,5 +77,113 @@ function __exec__(data) {
 }
 ```
 
+### base.js
+
+base.js is added to javascript file when it is executed.
+
+```
+var STARO = undefined;
+
+function prepare(data) {
+	if (STARO == undefined) {
+	    STARO = data.store()
+	}
+}
+
+function getInteger(name, defval) {
+    return parseInt(get(name, defval));
+}
+
+function getFloat(name, defval) {
+    return parseFloat(get(name, defval));
+}
+
+function getDouble(name, defval) {
+    return parseDouble(get(name, defval));
+}
+
+function get(name, defval) {
+    return STARO.get(name, defval);
+}
+
+function set(name, value) {
+    STARO.set(name, value);
+}
+
+function install(path) {
+    return STARO.machine().install(path);
+}
+
+function cfg() {
+    return STARO.machine().cfg();
+}
+
+function imp() {
+    return STARO.machine().imp();
+}
+
+function imp(ns) {
+    return STARO.machine().imp(ns);
+}
+
+function mch() {
+    return STARO.machine();
+}
+
+function mnt() {
+    return STARO.machine().mnt();
+}
+
+function pkg(ns) {
+    return STARO.machine().pkg(ns);
+}
+
+function mod(ns) {
+    return STARO.machine().mod(ns);
+}
+
+function lang() {
+    return STARO.machine().lang();
+}
+
+function io() {
+    return STARO.machine().io();
+}
+
+function log() {
+    return STARO.machine().log();
+}
+
+function net() {
+    return STARO.machine().net();
+}
+
+function text() {
+    return STARO.machine().text();
+}
+
+function tool() {
+    return STARO.machine().tool();
+}
+
+function util() {
+    return STARO.machine().util();
+}
+
+function __set__(data) {
+	prepare(data);
+	var key = data.input().get("name").toString();
+	var val = data.input().get("value");
+	set(key, val);
+}
+
+function __get__(data) {
+	prepare(data);
+	var key = data.input().get("name").toString();
+	var defval = data.input().get("defval");
+	data.output(get(key, defval));
+}
+```
+
 ---
 [Head icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/head)
