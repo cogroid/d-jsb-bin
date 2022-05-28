@@ -26,9 +26,9 @@ Copy [samples](https://github.com/cogroid/d-jsb-bin/tree/main/samples) folder to
 
 ```
 int timeout = 60000;
-String jsFile = "/storage/emulated/Download/jsb/Tests.js";
-String inputFile = "/storage/emulated/Download/jsb/input.json";
-String outputFile = "/storage/emulated/Download/jsb/output.json";
+String jsFile = "/storage/emulated/0/Download/jsb/Tests.js";
+String inputFile = "/storage/emulated/0/Download/jsb/input.json";
+String outputFile = "/storage/emulated/0/Download/jsb/output.json";
 
 com.cogroid.jsb.SBRun sbRun = new com.cogroid.jsb.SBRun();
 sbRun.exec(jsFile, timeout, inputFile, outputFile);
